@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <div class="container">
+            <label for="Name"><b>Name</b></label>
+            <input type="text" placeholder="Name" name="name" required>
+            <br>
+            <br>
+        <label for="Email"><b>Email Id</b></label>
+        <input type="text" placeholder="Email" name="Email Id" required>
+        <br>
+        <br>
+    
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+        <br>
+        <br>
+    
+        <button type="submit">Submit</button>
+    </center>
+</body>
+
+<script>
+    function saveData ()  {
+      let name,email, psw;
+      name=document.getElementById("name").value;
+      email=document.getElementbyid("email").value;
+      psw=document.getElemntById("psw").value;
+
+      let user_records = new Array();
+      user_records = JSON.parse(localStorage.getItem("users")) ?JSON.parse
+      if(user_records.some((v)=> {return v.email==email})) {
+        alert("duplication data");
+      } 
+      else{
+        user_records.push({
+            "name" : name,
+            "email":email,
+            "psw":password
+        })
+        localStorage.setItem("users",JSON.stringify(user_records))
+      }
+
+    } 
+</script>
